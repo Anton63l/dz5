@@ -64,3 +64,42 @@
 
 // var array = GenerateArray(10);
 // PrintArray(array);
+
+//Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+double[] GenerateArray(int length) {
+    double[] array = new double [length];
+    Random rand = new Random();
+    for (int i = 0; i < array.Length; i++){
+        array[i] = rand.Next(-100, 100) + rand.NextDouble();;
+    }
+
+       return array;
+}
+
+void PrintArray(double[] array) {
+    for (var i = 0; i < array.Length - 1; i++) {
+        Console.Write(array[i] + ", ");
+       
+    }
+    Console.WriteLine(array[array.Length - 1]);
+}
+
+void MinMax(double[] array){
+    // Задаем входные параметры мин и макс вне диапозона генерации массива
+    double min = 1000;
+    double max = -1000;
+    
+    for (int i = 0; i < array.Length; i++){
+        if (array[i] < min) min=array[i];        
+        if (array[i] > max) max=array[i];
+                    
+    } 
+
+    System.Console.WriteLine($"Разница между max {max} и min {min} составляет {max-min}");
+    
+}
+
+var array = GenerateArray(10);
+PrintArray(array);
+MinMax(array);
